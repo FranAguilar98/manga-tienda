@@ -1,0 +1,32 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.cuerpo {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.cuerpo > *:first-child {
+  flex: 3;
+}
+
+.cuerpo > *:last-child {
+  flex: 1;
+  position: sticky;
+  top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .cuerpo {
+    flex-direction: column;
+  }
+
+  .cuerpo > *:last-child {
+    position: static;
+    width: 100%;
+  }
+}

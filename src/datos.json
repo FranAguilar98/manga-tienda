@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "titulo": "Gintama",
+    "autor": "Hideaki Sorachi",
+    "categoria": "Comedia",
+    "precio": 11990,
+    "precioOferta": 8990,
+    "descripcion": "Gintoki Sakata y sus compañeros aceptan todo tipo de trabajos en un Japón feudal dominado por extraterrestres.",
+    "img": "manga-gintama.webp"
+  },
+  {
+    "id": 2,
+    "titulo": "No. 6",
+    "autor": "Hinoki Kino / Atsuko Asano",
+    "categoria": "Ciencia ficción",
+    "precio": 12990,
+    "precioOferta": 9490,
+    "descripcion": "En una ciudad utópica aparentemente perfecta, Shion descubre oscuros secretos tras salvar a un misterioso fugitivo llamado Nezumi.",
+    "img": "manga-No.6.webp"
+  },
+  {
+    "id": 3,
+    "titulo": "Shingeki no Kyojin",
+    "autor": "Hajime Isayama",
+    "categoria": "Acción",
+    "precio": 13990,
+    "precioOferta": 9990,
+    "descripcion": "La humanidad vive confinada tras gigantescos muros para protegerse de titanes carnívoros. Eren jura eliminarlos a todos.",
+    "img": "manga-Shingeki.webp"
+  }
+]

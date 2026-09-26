@@ -1,0 +1,763 @@
+/* Estilos Globales de ComicMania */
+:root {
+  --color-fondo: #FCE7F3;
+  --color-texto: #4C0519;
+  --color-primario: #E11D48;
+  --color-primario-hover: #BE123C;
+  --color-borde: #FDA4AF;
+  --color-blanco: #FFFFFF;
+  --fuente-comic: "Bangers", Impact, "Arial Black", sans-serif;
+  --fuente-texto: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Tipografía cómic */
+.font-comic,
+.logo-cm,
+.titulo-cont,
+.btn-comic,
+.card-title,
+.precio,
+.precio-oferta,
+.insignia,
+.badge-contador,
+.nav-link-comic {
+  font-family: var(--fuente-comic);
+}
+
+/* Contenedor principal */
+.app-contenedor {
+  max-width: 1200px;
+  margin: 15px auto;
+  padding: 10px;
+}
+
+/* Cajas contenedoras */
+.caja-comic {
+  border: 2px solid var(--color-borde);
+  border-radius: 12px;
+  margin: 10px 0;
+  padding: 16px;
+  background-color: var(--color-blanco);
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.10);
+}
+
+/* Header */
+.header-comic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-cm {
+  position: relative;
+  width: 90px;
+  height: 65px;
+  background-color: var(--color-borde);
+  border: 4px solid var(--color-blanco);
+  border-radius: 18px;
+  color: var(--color-fondo);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow:
+    3px 3px 0 var(--color-primario),
+    -2px -2px 0 var(--color-blanco),
+    2px -2px 0 var(--color-blanco),
+    -2px 2px 0 var(--color-blanco);
+  box-shadow:
+    0 0 0 3px var(--color-primario),
+    4px 4px 0 var(--color-borde),
+    0 6px 12px rgba(225, 29, 72, 0.20);
+  transform: rotate(-4deg);
+}
+
+.logo-cm::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 7px;
+  top: 9px;
+  left: 16px;
+  background-color: var(--color-blanco);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+}
+
+.logo-cm::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 18px;
+  left: 11px;
+  background-color: var(--color-blanco);
+  border-radius: 50%;
+}
+
+.logo-texto {
+  font-family: var(--fuente-comic);
+  font-size: 3.2rem;
+  letter-spacing: 0.04em;
+  color: var(--color-primario);
+  text-shadow:
+    2px 2px 0 var(--color-blanco),
+    4px 4px 0 var(--color-borde);
+}
+
+.header-acciones {
+  display: flex;
+  align-items: center;
+}
+
+.btn-carrito-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: 2px solid var(--color-primario);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0 var(--color-borde);
+}
+
+.btn-carrito-header:hover {
+  background-color: var(--color-primario-hover);
+}
+
+.badge-contador {
+  background-color: var(--color-blanco);
+  color: var(--color-primario);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+/* Navbar */
+.navbar-comic {
+  background-color: var(--color-fondo);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-link-comic {
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  color: var(--color-texto);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nav-link-comic:hover {
+  color: var(--color-primario-hover);
+}
+
+.nav-link-comic.activo {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border-radius: 6px;
+  transform: skew(-8deg);
+}
+
+.nav-link-comic.activo span {
+  display: inline-block;
+  transform: skew(8deg);
+}
+
+/* Títulos */
+.titulo-cont {
+  display: inline-block;
+  margin: 0 0 1rem 0;
+  padding: 0.15em 0.7em;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  color: var(--color-blanco);
+  background-color: var(--color-primario);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--color-borde);
+  transform: skew(-8deg);
+}
+
+.titulo-cont span {
+  display: inline-block;
+  transform: skew(8deg);
+}
+
+.titulo-cont.titulo-chico {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.insignia {
+  background-color: var(--color-blanco);
+  color: var(--color-primario);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  transform: skew(8deg);
+  margin-left: 6px;
+}
+
+/* Botones */
+.btn-comic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primario-hover);
+  border-color: var(--color-primario-hover);
+}
+
+.btn-secundario {
+  background-color: var(--color-blanco);
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+.btn-sm {
+  font-size: 0.95rem;
+  padding: 4px 10px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+/* Carrusel de Inicio */
+.carrusel-contenedor {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto 16px auto;
+  overflow: hidden;
+  border: 2px solid var(--color-borde);
+  border-radius: 12px;
+}
+
+.carrusel-slide {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(76, 5, 25, 0.6);
+  color: var(--color-blanco);
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.carrusel-btn:hover {
+  background-color: var(--color-primario);
+}
+
+.carrusel-btn.prev {
+  left: 10px;
+}
+
+.carrusel-btn.next {
+  right: 10px;
+}
+
+.carrusel-indicadores {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  background-color: rgba(76, 5, 25, 0.5);
+  padding: 3px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.indicador-punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+.indicador-punto.activo {
+  background-color: var(--color-primario);
+}
+
+/* Layout Productos + Carrito */
+.layout-productos-carrito {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 950px) {
+  .layout-productos-carrito {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Buscador y Filtros */
+.filtros-barra {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.buscador-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.input-comic,
+.select-comic,
+.textarea-comic {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid var(--color-primario);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+  color: var(--color-texto);
+  outline: none;
+}
+
+.input-comic:focus,
+.select-comic:focus,
+.textarea-comic:focus {
+  border-color: var(--color-primario-hover);
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+}
+
+.categorias-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-pill:hover {
+  background-color: #FDA4AF;
+}
+
+.btn-pill.activa {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border-color: var(--color-primario);
+}
+
+.info-resultados {
+  font-size: 0.9rem;
+  color: #881337;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* Indicador de carga */
+.indicador-carga-box {
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--color-primario);
+}
+
+.spinner-comic {
+  width: 36px;
+  height: 36px;
+  border: 4px solid var(--color-borde);
+  border-top-color: var(--color-primario);
+  border-radius: 50%;
+  margin: 0 auto 12px auto;
+  animation: girar 0.75s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+.texto-cargando {
+  font-family: var(--fuente-comic);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Tarjetas de Producto */
+.cont-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card-comic {
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.10);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+  position: relative;
+}
+
+.card-comic:hover {
+  transform: translateY(-4px);
+}
+
+.card-imagen-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: #FFF1F2;
+  border-bottom: 2px solid var(--color-borde);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-descuento {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  font-family: var(--fuente-comic);
+  font-size: 1rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.card-cuerpo {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-categoria-autor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.etiqueta-categoria {
+  display: inline-block;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  color: var(--color-primario);
+}
+
+.card-autor {
+  color: #881337;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--color-texto);
+  margin-bottom: 6px;
+}
+
+.card-descripcion {
+  font-size: 0.85rem;
+  color: #4C0519;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  line-height: 1.35;
+  flex-grow: 1;
+}
+
+.precios-contenedor {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+  margin-top: auto;
+}
+
+.precio-normal {
+  font-size: 1rem;
+  color: #9F1239;
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.precio-oferta {
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+  color: var(--color-primario);
+  line-height: 1;
+}
+
+/* Sección Carrito Simple (Junto a Productos) */
+.seccion-carrito {
+  height: fit-content;
+}
+
+.lista-carrito-simple {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.item-carrito-simple {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--color-borde);
+}
+
+.item-carrito-texto {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.item-carrito-titulo {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+.item-carrito-precio {
+  font-size: 0.85rem;
+  color: var(--color-primario);
+  font-weight: bold;
+}
+
+.total-contenedor-simple {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 2px dashed var(--color-borde);
+}
+
+#total-precio {
+  font-size: 1.6rem;
+  color: var(--color-primario);
+}
+
+/* Notificación simple: limpia y directa */
+.toast-simple {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #BE123C;
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+/* Contacto */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-grupo {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.error-campo {
+  color: var(--color-primario);
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.alerta-exito {
+  background-color: #D1FAE5;
+  border: 2px solid #10B981;
+  color: #065F46;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+/* Footer */
+.pie-comic {
+  background-color: var(--color-fondo);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 20px 16px;
+}
+
+.pie-columna h4 {
+  font-family: var(--fuente-comic);
+  font-size: 1.5rem;
+  color: var(--color-primario);
+  margin-bottom: 8px;
+}
+
+.pie-columna p,
+.pie-columna a {
+  color: var(--color-texto);
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pie-columna a:hover {
+  color: var(--color-primario-hover);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .logo-cm {
+    width: 75px;
+    height: 55px;
+    font-size: 2.4rem;
+  }
+  .logo-texto {
+    font-size: 2.2rem;
+  }
+  .header-comic {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.logo-link {
+  background: none;
+  border: none;
+  padding: 0;
+}
