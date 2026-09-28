@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
+const base = import.meta.env.BASE_URL;
+
 const slides = [
-  { src: '/img/comicmania_welcome.jpg', alt: 'Bienvenido a ComicMania' },
-  { src: '/img/comicmania_descuento.jpg', alt: 'Descuentos en ComicMania' },
-  { src: '/img/comicmania_social_media.jpg', alt: 'ComicMania en redes sociales' },
+  { src: `${base}img/comicmania_welcome.jpg`, alt: 'Bienvenido a ComicMania' },
+  { src: `${base}img/comicmania_descuento.jpg`, alt: 'Descuentos en ComicMania' },
+  { src: `${base}img/comicmania_social_media.jpg`, alt: 'ComicMania en redes sociales' },
 ];
 
 export default function Carrusel() {

@@ -10,7 +10,7 @@ export default function TarjetaManga({ producto, alAgregar }) {
   return (
     <article className="card-comic" aria-label={`Producto: ${producto.titulo}`}>
       <div className="card-imagen-wrapper">
-        <img className="card-img-top" src={`/img/${producto.img}`} alt={`Portada de ${producto.titulo}`} />
+        <img className="card-img-top" src={`${import.meta.env.BASE_URL}img/${producto.img}`} alt={`Portada de ${producto.titulo}`} />
         {descuento > 0 && <span className="badge-descuento">-{descuento}%</span>}
       </div>
 
