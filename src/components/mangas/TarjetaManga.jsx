@@ -2,10 +2,16 @@ function formatearPrecio(precio) {
   return precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
 }
 
-export default function TarjetaManga({ producto, alAgregar }) {
+export default function TarjetaManga({ producto, carrito, alAgregar, alQuitar }) {
+  // Porcentaje de descuento entre precio normal y precio oferta
   const descuento = Math.round(
     ((producto.precio - producto.precioOferta) / producto.precio) * 100
   );
+
+  // Revisa si este producto ya está en el carrito
+  function existeEnCarrito() {
+    return carrito.some((item) => item.id === producto.id);
+  }
 
   return (
     <article className="card-comic" aria-label={`Producto: ${producto.titulo}`}>
@@ -28,9 +34,16 @@ export default function TarjetaManga({ producto, alAgregar }) {
           <span className="precio-oferta font-comic">{formatearPrecio(producto.precioOferta)}</span>
         </div>
 
-        <button type="button" className="btn-comic btn-primary w-100" onClick={() => alAgregar(producto)}>
-          Agregar al carrito
-        </button>
+        {/* Renderizado condicional: el botón cambia según si está en el carrito */}
+        {!existeEnCarrito() ? (
+          <button type="button" className="btn-comic btn-primary w-100" onClick={() => alAgregar(producto)}>
+            Agregar al carrito
+          </button>
+        ) : (
+          <button type="button" className="btn-comic btn-quitar w-100" onClick={() => alQuitar(producto.id)}>
+            En el carrito · Quitar
+          </button>
+        )}
       </div>
     </article>
   );

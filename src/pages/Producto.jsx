@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
-import ListaComics from '../components/ListaComics';
-import Carrito from '../components/Carrito';
+import ListaComics from '../components/mangas/ListaComics';
+import Carrito from '../components/mangas/Carrito';
 
+// Categorías disponibles para filtrar el catálogo
 const CATEGORIAS = ['todos', 'Acción', 'Comedia', 'Ciencia ficción'];
 
 export default function Producto({ comics, cargando, categoriaInicial, alAgregar, carrito, alQuitar, alVaciar }) {
+  // Estados: categoría activa, texto del input y búsqueda aplicada
   const [categoria, setCategoria] = useState(categoriaInicial);
   const [busquedaInput, setBusquedaInput] = useState('');
   const [busqueda, setBusqueda] = useState('');
 
+  // useEffect: sincroniza la categoría cuando llega una nueva desde fuera
   useEffect(() => {
     setCategoria(categoriaInicial);
   }, [categoriaInicial]);
 
+  // Aplica la búsqueda solo al enviar el formulario
   function manejarBusqueda(evento) {
     evento.preventDefault();
     setBusqueda(busquedaInput.trim());
@@ -51,9 +55,19 @@ export default function Producto({ comics, cargando, categoriaInicial, alAgregar
           </div>
         </div>
 
-        <ListaComics comics={comics} cargando={cargando} categoria={categoria} busqueda={busqueda} alAgregar={alAgregar} />
+        {/* Se pasan carrito y alQuitar para que cada tarjeta alterne su botón */}
+        <ListaComics
+          comics={comics}
+          cargando={cargando}
+          categoria={categoria}
+          busqueda={busqueda}
+          carrito={carrito}
+          alAgregar={alAgregar}
+          alQuitar={alQuitar}
+        />
       </section>
 
+      {/* Panel del carrito: lista, total y botón para vaciar */}
       <Carrito carrito={carrito} alQuitar={alQuitar} alVaciar={alVaciar} />
     </div>
   );

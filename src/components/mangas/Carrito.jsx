@@ -1,8 +1,12 @@
+// Da formato de peso chileno a un número (ej: 8990 -> $8.990)
 function formatearPrecio(precio) {
   return precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
 }
 
+// Panel del carrito. Props: carrito (lista de items), alQuitar (quita uno por id)
+// y alVaciar (borra todo el carrito).
 export default function Carrito({ carrito, alQuitar, alVaciar }) {
+  // Suma el precio de todos los items (ya guardan el precio de oferta)
   const totalPrecio = carrito.reduce((suma, item) => suma + item.precio, 0);
 
   return (
@@ -11,6 +15,7 @@ export default function Carrito({ carrito, alQuitar, alVaciar }) {
         <span>Carrito</span> <span className="insignia">{carrito.length}</span>
       </h2>
 
+      {/* Renderizado condicional: mensaje si el carrito está vacío */}
       {carrito.length === 0 ? (
         <p>Aún no has agregado cómics.</p>
       ) : (

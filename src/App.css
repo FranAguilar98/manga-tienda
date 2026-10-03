@@ -30,3 +30,9 @@
     width: 100%;
   }
 }
+
+.btn-comic.btn-quitar {
+  background: #FFFFFF;
+  color: #E11D48;
+  border: 2px solid #E11D48;
+}

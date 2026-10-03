@@ -1,7 +1,7 @@
-import Carrusel from '../components/Carrusel';
-import ListaComics from '../components/ListaComics';
+import Carrusel from '../components/layout/Carrusel';
+import ListaComics from '../components/mangas/ListaComics';
 
-export default function Inicio({ comics, cargando, alAgregar, irAProducto }) {
+export default function Inicio({ comics, cargando, carrito, alAgregar, alQuitar, irAProducto }) {
   return (
     <>
       <div className="caja-comic">
@@ -10,7 +10,15 @@ export default function Inicio({ comics, cargando, alAgregar, irAProducto }) {
 
       <section className="caja-comic">
         <h2 className="titulo-cont"><span>Destacados</span></h2>
-        <ListaComics comics={comics} cargando={cargando} maximo={3} alAgregar={alAgregar} />
+        {/* Se pasan carrito y alQuitar para que cada tarjeta pueda alternar su botón */}
+        <ListaComics
+          comics={comics}
+          cargando={cargando}
+          maximo={3}
+          carrito={carrito}
+          alAgregar={alAgregar}
+          alQuitar={alQuitar}
+        />
         <button type="button" className="btn-comic btn-secundario mt-2" onClick={() => irAProducto('todos')}>
           Ver todos los cómics
         </button>

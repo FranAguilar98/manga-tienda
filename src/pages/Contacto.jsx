@@ -1,21 +1,26 @@
 import { useState } from 'react';
 
+// Valores iniciales del formulario (también sirve para limpiarlo después de enviar)
 const CAMPOS_INICIALES = { nombre: '', correo: '', motivo: '', detalle: '' };
 
+// Valida el formato del correo con una expresión regular simple
 function correoValido(correo) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
 }
 
 export default function Contacto() {
+  // Estados: valores de los campos, errores de validación y mensaje de éxito
   const [campos, setCampos] = useState(CAMPOS_INICIALES);
   const [errores, setErrores] = useState({});
   const [enviado, setEnviado] = useState(false);
 
+  // Actualiza el campo que cambió usando su id como clave
   function manejarCambio(evento) {
     const { id, value } = evento.target;
     setCampos((anteriores) => ({ ...anteriores, [id]: value }));
   }
 
+  // Valida los campos y, si todo está bien, simula el envío
   function manejarEnvio(evento) {
     evento.preventDefault();
     const nuevosErrores = {};
@@ -28,8 +33,10 @@ export default function Contacto() {
     setErrores(nuevosErrores);
     setEnviado(false);
 
+    // Si hay errores, se detiene el envío
     if (Object.keys(nuevosErrores).length > 0) return;
 
+    // Envío exitoso: muestra el mensaje y limpia el formulario
     setEnviado(true);
     setCampos(CAMPOS_INICIALES);
   }
@@ -39,6 +46,7 @@ export default function Contacto() {
       <section className="caja-comic">
         <h2 className="titulo-cont"><span>Contacto</span></h2>
 
+        {/* Renderizado condicional: mensaje de éxito solo tras enviar */}
         {enviado && <div className="alerta-exito">¡Hemos enviado su requerimiento!</div>}
 
         <form onSubmit={manejarEnvio} noValidate>
@@ -76,6 +84,7 @@ export default function Contacto() {
         </form>
       </section>
 
+      {/* Datos de la tienda */}
       <aside className="caja-comic">
         <h3 className="titulo-cont titulo-chico"><span>Nuestra tienda</span></h3>
         <p>Av. Providencia 456, Santiago</p>
