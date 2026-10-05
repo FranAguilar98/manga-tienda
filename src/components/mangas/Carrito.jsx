@@ -1,8 +1,4 @@
-// Da formato de peso chileno a un número (ej: 8990 -> $8.990)
-function formatearPrecio(precio) {
-  return precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
-}
-
+import { formatearPrecio } from '../../utils/formato';
 // Panel del carrito. Props: carrito (lista de items), alQuitar (quita uno por id)
 // y alVaciar (borra todo el carrito).
 export default function Carrito({ carrito, alQuitar, alVaciar }) {

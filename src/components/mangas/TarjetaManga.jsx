@@ -1,6 +1,4 @@
-function formatearPrecio(precio) {
-  return precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
-}
+import { formatearPrecio } from '../../utils/formato';
 
 export default function TarjetaManga({ producto, carrito, alAgregar, alQuitar }) {
   // Porcentaje de descuento entre precio normal y precio oferta
